@@ -17,15 +17,21 @@ namespace Sky{
         char category[20];//报考类别
     };
     std::istream &operator>>(std::istream &in,StudentInfo &tar){
-        in>>tar.id>>tar.name;
-        char sex[4];
+        char sex[20];
+        in>>tar.id
+        >>tar.name;
         in>>sex;
         tar.sex=(std::strcmp(sex,"男")==0);
-        in>>tar.age>>tar.category;
+        in>>tar.age
+        >>tar.category;
         return in;
     }
     std::ostream &operator<<(std::ostream &out,const StudentInfo &tar){
-
+        out<<tar.id<<' '
+        <<tar.name<<' '
+        <<(tar.sex?"男":"女")<<' '
+        <<tar.age<<' '
+        <<tar.category;
         return out;
     }
 
@@ -38,10 +44,10 @@ namespace Sky{
             T data;
             Node *next;
         };
-        //打印函数类型
-        using PrintFunction=std::function<void(const T &data)>;
+        //遍历函数 类型
+        using ErgodicFunction=std::function<void(const T &data)>;
         //默认打印函数
-        static PrintFunction defaultPrintFunc;
+        static ErgodicFunction defaultPrintFunc;
 
         LinkedList():length(0),head(nullptr){};
         virtual ~LinkedList();
@@ -59,8 +65,10 @@ namespace Sky{
         inline const int Length()const{
             return length;
         }
-        //打印
-        void Print(const PrintFunction &func=defaultPrintFunc)const;
+        //遍历 根据每个数据执行func
+        void Ergodic(const ErgodicFunction &func)const;
+        //打印 根据每个数据执行打印函数func
+        void Print(const ErgodicFunction &func=defaultPrintFunc)const;
     private:
         Node *at(int index)const;
         int length;
@@ -68,7 +76,7 @@ namespace Sky{
     };
 
     template<typename T>
-    typename LinkedList<T>::PrintFunction LinkedList<T>::defaultPrintFunc{[](const T &data){
+    typename LinkedList<T>::ErgodicFunction LinkedList<T>::defaultPrintFunc{[](const T &data){
         std::cout<<data<<std::endl;
     }};
 
@@ -151,7 +159,12 @@ namespace Sky{
     }
 
     template<typename T>
-    void LinkedList<T>::Print(const LinkedList::PrintFunction &func)const{
+    void LinkedList<T>::Print(const LinkedList::ErgodicFunction &func)const{
+        this->Ergodic(func);
+    }
+
+    template<typename T>
+    void LinkedList<T>::Ergodic(const LinkedList::ErgodicFunction &func) const {
         Node *tar=head;
         while(tar){
             func(tar->data);
@@ -161,13 +174,107 @@ namespace Sky{
 
 }
 
-#include <iostream>
-using std::cin;
-using std::cout;
-using std::endl;
+using namespace std;
 using Info=Sky::StudentInfo;
-using List=Sky::LinkedList<Info>;
+using InfoList=Sky::LinkedList<Info>;
+void Prompt(){
+    cout<<"\
+**********************************\n\
+  T1 考试报名系统 2052313 周长赫\n\
+**********************************\n\
+    "<<endl;
+}
+void Hang(){
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max());
+    cout<<endl<<"按任意键继续..."<<endl;
+    cin.get();
+}
+void ShowHelp(){
+    cout<<"\
+[操作指南]\n\
+位置从零开始，\n\
+0 ~ (n-1) 分别表示第1至第n条信息，\n\
+-1 ~ -n 表示倒数第1至第n条信息\n\
+0：退出程序\n\
+1：在指定位置前插入信息\n\
+2：删除指定位置的信息\n\
+3：查找第一个学号为指定值的信息\n\
+4：修改指定位置的信息\n\
+5：输出表内所有信息\n\
+    "<<endl;
+}
+void BuildDataSheet(InfoList &infoList){
+    int num;
+    Info tmp;
+    cout<<"[首先请建立考生信息系统]"<<endl;
+    cout<<"请输入考生人数：";
+    cin>>num;
+    cout<<"请输入每位考生的信息："<<endl;
+    cout<<"学号 姓名 性别（男/女） 年龄 报考类别"<<endl;
+    while(num--){
+        cin>>tmp;
+        infoList.Append(tmp);
+    }
+    cout<<"[考生信息系统建立完毕]"<<endl;
+}
+void Operate(InfoList &infoList){
+    ShowHelp();
+    cout<<"[开始操作]"<<endl;
+    int operOrd;
+    while(true) {
+        cout << "请选择您要进行的操作：";
+        cin >> operOrd;
+        switch (operOrd) {
+            case 0:
+                return;
+            case 1: {
+                int ord;
+                Info tmp;
+                cout << "请输入您要插入的位置：";
+                cin >> ord;
+                cout << "请输入考生的信息：" << endl;
+                cout << "学号 姓名 性别（男/女） 年龄 报考类别" << endl;
+                cin >> tmp;
+                cout << (infoList.Insert(ord, tmp) ? "插入成功" : "插入失败，请检查输入的信息") << endl;
+            }
+                break;
+            case 2: {
+                int ord;
+                cout << "请输入您要删除的位置：";
+                cin >> ord;
+                Info tmp;
+                try {
+                    tmp = infoList[ord];
+                } catch (std::out_of_range &e) {
+                    cout << "删除失败，输入位置非法" << endl;
+                    break;
+                }
+                infoList.Remove(ord);
+                cout << "被删除考生的信息为：" << endl;
+                cout << tmp << endl;
+                cout << "删除成功" << endl;
+            }
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                infoList.Print();
+                cout << "输出完毕" << endl;
+                break;
+            default:
+                break;
+        }
+        cout << endl;
+    }
+}
+#pragma clang diagnostic pop
 int main(){
-    List infoList;
-
+    InfoList infoList;
+    Prompt();
+    BuildDataSheet(infoList);
+    Operate(infoList);
+    Hang();
 }
