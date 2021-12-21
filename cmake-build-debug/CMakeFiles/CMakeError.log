@@ -1,22 +1,28 @@
-Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
-Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
-Build flags: 
-Id flags:  
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/CMakeTmp
 
-The output was:
-1
-ld: library not found for -lSystem
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
+Run Build Command(s):nmake -f Makefile /nologo cmTC_466b7\fast && 	D:\VS\main\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe  -f CMakeFiles\cmTC_466b7.dir\build.make /nologo -L                  CMakeFiles\cmTC_466b7.dir\build
+Building C object CMakeFiles/cmTC_466b7.dir/CMakeCCompilerABI.c.obj
+	"D:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\cmTC_466b7.dir\CMakeCCompilerABI.c.obj.d --working-dir=C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles\CMakeTmp --filter-prefix="" -- D:\VS\main\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe @C:\Users\boton\AppData\Local\Temp\nm43E7.tmp
+NMAKE : fatal error U1077: “"D:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe"”: 返回代码“0xc0000409”
+Stop.
+NMAKE : fatal error U1077: “D:\VS\main\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe”: 返回代码“0x2”
+Stop.
 
 
-Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
-Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
-Build flags: 
-Id flags:  
 
-The output was:
-1
-ld: library not found for -lc++
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):nmake -f Makefile /nologo cmTC_f8e39\fast && 	D:\VS\main\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe  -f CMakeFiles\cmTC_f8e39.dir\build.make /nologo -L                  CMakeFiles\cmTC_f8e39.dir\build
+Building CXX object CMakeFiles/cmTC_f8e39.dir/CMakeCXXCompilerABI.cpp.obj
+	"D:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\cmTC_f8e39.dir\CMakeCXXCompilerABI.cpp.obj.d --working-dir=C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles\CMakeTmp --filter-prefix="" -- D:\VS\main\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe @C:\Users\boton\AppData\Local\Temp\nm4E67.tmp
+NMAKE : fatal error U1077: “"D:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe"”: 返回代码“0xc0000409”
+Stop.
+NMAKE : fatal error U1077: “D:\VS\main\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe”: 返回代码“0x2”
+Stop.
+
+
 
 
