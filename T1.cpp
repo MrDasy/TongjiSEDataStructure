@@ -62,7 +62,7 @@ namespace Sky{
         //查询节点
         const T &operator[](int index)const;
         //查询长度
-        inline const int Length()const{
+        inline int Length()const{
             return length;
         }
         //遍历 根据每个数据执行func
@@ -186,16 +186,16 @@ void Prompt(){
 }
 void Hang(){
     cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max());
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
     cout<<endl<<"按任意键继续..."<<endl;
     cin.get();
 }
 void ShowHelp(){
     cout<<"\
 [操作指南]\n\
-位置从零开始，\n\
-0 ~ (n-1) 分别表示第1至第n条信息，\n\
--1 ~ -n 表示倒数第1至第n条信息\n\
+> 位置从零开始，\n\
+> 0 ~ (n-1) 分别表示第1至第n条信息，\n\
+> -1 ~ -n 表示倒数第1至第n条信息\n\
 0：退出程序\n\
 1：在指定位置前插入信息\n\
 2：删除指定位置的信息\n\
@@ -221,7 +221,16 @@ void BuildDataSheet(InfoList &infoList){
 void Operate(InfoList &infoList){
     ShowHelp();
     cout<<"[开始操作]"<<endl;
-    int operOrd;
+    int operOrd,targetId;
+    bool found{};
+    Info infoFound{};
+    InfoList::ErgodicFunction findFunc=[&found,&infoFound,&targetId](const Info &data){
+        if(found)return;
+        if(data.id==targetId){
+            found= true;
+            infoFound=data;
+        }
+    };
     while(true) {
         cout << "请选择您要进行的操作：";
         cin >> operOrd;
@@ -256,21 +265,51 @@ void Operate(InfoList &infoList){
                 cout << "删除成功" << endl;
             }
                 break;
-            case 3:
+            case 3:{
+                cout << "请输入您要查找的学号：";
+                cin >> targetId;
+                found=false;
+                infoList.Ergodic(findFunc);
+                if(found){
+                    cout<<"查找成功，考生信息为："<<endl;
+                    cout<<infoFound<<endl;
+                }else
+                    cout << "查找失败，未找到指定学号考生" << endl;
+            }
                 break;
-            case 4:
+            case 4:{
+                int ord;
+                cout << "请输入您要修改的位置：";
+                cin >> ord;
+                Info tmp;
+                try{
+                    tmp = infoList[ord];
+                }catch (std::out_of_range &e) {
+                    cout << "修改失败，输入位置非法" << endl;
+                    break;
+                }
+                cout << "当前考生的信息：" << endl;
+                cout<<tmp<<endl;
+                cout << "请输入修改后考生的信息：" << endl;
+                cout << "学号 姓名 性别（男/女） 年龄 报考类别" << endl;
+                cin>>tmp;
+                infoList.Modify(ord,tmp);
+                cout << "修改成功" << endl;
+            }
                 break;
             case 5:
                 infoList.Print();
                 cout << "输出完毕" << endl;
                 break;
             default:
+                cout<<"未知操作数，请仔细参阅操作指南！"<<endl;
+                ShowHelp();
                 break;
         }
         cout << endl;
     }
 }
-#pragma clang diagnostic pop
+
 int main(){
     InfoList infoList;
     Prompt();
