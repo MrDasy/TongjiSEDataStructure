@@ -1,6 +1,5 @@
-﻿//
-// Created by MrDas on 2021/12/22.
-//
+﻿// 2052313 周长赫
+// T2
 
 #include <functional>
 #include <stdexcept>
@@ -280,4 +279,5 @@ int main(){
     GetData(data);
     Compute(data);
     Hang();
+    return 0;
 }

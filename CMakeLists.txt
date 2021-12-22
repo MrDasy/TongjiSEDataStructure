@@ -4,4 +4,4 @@ project(SSEDataStructure)
 set(CMAKE_CXX_STANDARD 14)
 
 #add_executable(SSEDataStructure main.cpp)
-add_executable(SSEDataStructure T2.cpp)
+add_executable(SSEDataStructure T3.cpp)

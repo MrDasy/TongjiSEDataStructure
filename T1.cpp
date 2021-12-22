@@ -312,4 +312,5 @@ int main(){
     BuildDataSheet(infoList);
     Operate(infoList);
     Hang();
+    return 0;
 }

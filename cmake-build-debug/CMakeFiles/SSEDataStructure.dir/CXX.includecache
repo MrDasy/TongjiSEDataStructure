@@ -6,12 +6,16 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/boton/CLionProjects/SSEDataStructure/T2.cpp
+C:/Users/boton/CLionProjects/SSEDataStructure/T3.cpp
+cstdlib
+-
 functional
+-
+iostream
 -
 stdexcept
 -
-iostream
+ctime
 -
 iomanip
 -
