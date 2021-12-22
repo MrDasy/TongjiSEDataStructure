@@ -118,29 +118,29 @@ SSEDataStructure\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SSEDataStructure.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SSEDataStructure.dir\build
 .PHONY : SSEDataStructure\fast
 
-T1.obj: T1.cpp.obj
-.PHONY : T1.obj
+T2.obj: T2.cpp.obj
+.PHONY : T2.obj
 
 # target to build an object file
-T1.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SSEDataStructure.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SSEDataStructure.dir\T1.cpp.obj
-.PHONY : T1.cpp.obj
+T2.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SSEDataStructure.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SSEDataStructure.dir\T2.cpp.obj
+.PHONY : T2.cpp.obj
 
-T1.i: T1.cpp.i
-.PHONY : T1.i
+T2.i: T2.cpp.i
+.PHONY : T2.i
 
 # target to preprocess a source file
-T1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SSEDataStructure.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SSEDataStructure.dir\T1.cpp.i
-.PHONY : T1.cpp.i
+T2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SSEDataStructure.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SSEDataStructure.dir\T2.cpp.i
+.PHONY : T2.cpp.i
 
-T1.s: T1.cpp.s
-.PHONY : T1.s
+T2.s: T2.cpp.s
+.PHONY : T2.s
 
 # target to generate assembly for a file
-T1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SSEDataStructure.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SSEDataStructure.dir\T1.cpp.s
-.PHONY : T1.cpp.s
+T2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SSEDataStructure.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SSEDataStructure.dir\T2.cpp.s
+.PHONY : T2.cpp.s
 
 # Help Target
 help:
@@ -151,9 +151,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... SSEDataStructure
-	@echo ... T1.obj
-	@echo ... T1.i
-	@echo ... T1.s
+	@echo ... T2.obj
+	@echo ... T2.i
+	@echo ... T2.s
 .PHONY : help
 
 

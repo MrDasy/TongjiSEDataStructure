@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/boton/CLionProjects/SSEDataStructure/T1.cpp" "C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/SSEDataStructure.dir/T1.cpp.obj"
+  "C:/Users/boton/CLionProjects/SSEDataStructure/T2.cpp" "C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/SSEDataStructure.dir/T2.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 

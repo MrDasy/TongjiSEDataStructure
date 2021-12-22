@@ -6,7 +6,13 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/boton/CLionProjects/SSEDataStructure/T1.cpp
+C:/Users/boton/CLionProjects/SSEDataStructure/T2.cpp
+functional
+-
+stdexcept
+-
+iostream
+-
 functional
 -
 stdexcept

@@ -35,6 +35,9 @@ namespace Sky{
         return out;
     }
 
+    //遍历函数 类型
+    template<typename T>
+    using ErgodicFunction=std::function<void(const T &data)>;
 
     template<typename T>
     class LinkedList{
@@ -44,19 +47,15 @@ namespace Sky{
             T data;
             Node *next;
         };
-        //遍历函数 类型
-        using ErgodicFunction=std::function<void(const T &data)>;
-        //默认打印函数
-        static ErgodicFunction defaultPrintFunc;
 
         LinkedList():length(0),head(nullptr){};
         virtual ~LinkedList();
         //在末尾连接
-        bool Append(const T &data);
+        virtual bool Append(const T &data);
         //在第index个元素前插入
-        bool Insert(int index, const T &data);
+        virtual bool Insert(int index, const T &data);
         //删除节点
-        bool Remove(int index);
+        virtual bool Remove(int index);
         //修改节点
         bool Modify(int index, const T &data);
         //查询节点
@@ -66,26 +65,19 @@ namespace Sky{
             return length;
         }
         //遍历 根据每个数据执行func
-        void Ergodic(const ErgodicFunction &func)const;
-        //打印 根据每个数据执行打印函数func
-        void Print(const ErgodicFunction &func=defaultPrintFunc)const;
-    private:
-        Node *at(int index)const;
+        void Ergodic(const ErgodicFunction<T> &func)const;
+    protected:
+        virtual Node *at(int index)const;
         int length;
         Node *head;
     };
 
     template<typename T>
-    typename LinkedList<T>::ErgodicFunction LinkedList<T>::defaultPrintFunc{[](const T &data){
-        std::cout<<data<<std::endl;
-    }};
-
-    template<typename T>
     LinkedList<T>::~LinkedList(){
-        Node *now{head},*tmp;
-        while(now){
-            tmp=now;
-            now=now->next;
+        Node *tar=head,*tmp;
+        for(int i=length;i;--i){
+            tmp=tar;
+            tar=tar->next;
             delete tmp;
         }
     }
@@ -104,7 +96,7 @@ namespace Sky{
     template<typename T>
     bool LinkedList<T>::Insert(const int index, const T &data){
         if(index==0||index==-length)
-            head=new Node{data,head};
+            head=new Node{data, nullptr};
         else{
             Node *tar;
             if(!(tar=this->at(index-1)))
@@ -159,24 +151,22 @@ namespace Sky{
     }
 
     template<typename T>
-    void LinkedList<T>::Print(const LinkedList::ErgodicFunction &func)const{
-        this->Ergodic(func);
-    }
-
-    template<typename T>
-    void LinkedList<T>::Ergodic(const LinkedList::ErgodicFunction &func) const {
+    void LinkedList<T>::Ergodic(const ErgodicFunction<T> &func) const {
         Node *tar=head;
-        while(tar){
+        for(int i=length;i;--i){
             func(tar->data);
-            tar = tar->next;
+            tar=tar->next;
         }
     }
 
+    template<typename T>
+    using LList=LinkedList<T>;
 }
 
 using namespace std;
 using Info=Sky::StudentInfo;
-using InfoList=Sky::LinkedList<Info>;
+using InfoList=Sky::LList<Info>;
+using EFunc=Sky::ErgodicFunction<Info>;
 void Prompt(){
     cout<<"\
 **********************************\n\
@@ -219,18 +209,23 @@ void BuildDataSheet(InfoList &infoList){
     cout<<"[考生信息系统建立完毕]"<<endl;
 }
 void Operate(InfoList &infoList){
-    ShowHelp();
-    cout<<"[开始操作]"<<endl;
     int operOrd,targetId;
     bool found{};
     Info infoFound{};
-    InfoList::ErgodicFunction findFunc=[&found,&infoFound,&targetId](const Info &data){
+
+    EFunc findFunc=[&found,&infoFound,&targetId](const Info &data){
         if(found)return;
         if(data.id==targetId){
             found= true;
             infoFound=data;
         }
     };
+    EFunc printFunc=[](const Info &data){
+        cout<<data<<endl;
+    };
+
+    ShowHelp();
+    cout<<"[开始操作]"<<endl;
     while(true) {
         cout << "请选择您要进行的操作：";
         cin >> operOrd;
@@ -298,7 +293,8 @@ void Operate(InfoList &infoList){
             }
                 break;
             case 5:
-                infoList.Print();
+                infoList.Ergodic(printFunc);
+                cout<<"共"<<infoList.Length()<<"名考生"<<endl;
                 cout << "输出完毕" << endl;
                 break;
             default:
