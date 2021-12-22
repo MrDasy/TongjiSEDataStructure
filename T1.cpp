@@ -3,7 +3,6 @@
 
 #include <functional>
 #include <stdexcept>
-#include <iostream>
 namespace Sky{
 
     struct StudentInfo{
@@ -163,6 +162,7 @@ namespace Sky{
     using LList=LinkedList<T>;
 }
 
+#include <iostream>
 using namespace std;
 using Info=Sky::StudentInfo;
 using InfoList=Sky::LList<Info>;
