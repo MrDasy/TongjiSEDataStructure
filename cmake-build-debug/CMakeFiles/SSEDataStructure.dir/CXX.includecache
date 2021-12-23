@@ -6,7 +6,19 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/boton/CLionProjects/SSEDataStructure/T4.cpp
-cstdio
+C:/Users/boton/CLionProjects/SSEDataStructure/Containers.hpp
+functional
+-
+utility
+-
+stdexcept
+-
+algorithm
+-
+
+C:/Users/boton/CLionProjects/SSEDataStructure/T8.cpp
+Containers.hpp
+C:/Users/boton/CLionProjects/SSEDataStructure/Containers.hpp
+iostream
 -
 

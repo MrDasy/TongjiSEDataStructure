@@ -1,10 +1,9 @@
 ﻿// 2052313 周长赫
 // T1
 
-#include <functional>
-#include <stdexcept>
+#include "Containers.hpp"
+#include <iostream>
 namespace Sky{
-
     struct StudentInfo{
         friend std::istream &operator>>(std::istream &in,StudentInfo &tar);
         friend std::ostream &operator<<(std::ostream &out,const StudentInfo &tar);
@@ -33,140 +32,12 @@ namespace Sky{
         <<tar.category;
         return out;
     }
-
-    //遍历函数 类型
-    template<typename T>
-    using ErgodicFunction=std::function<void(const T &data)>;
-
-    template<typename T>
-    class LinkedList{
-    public:
-        //节点类型
-        struct Node{
-            T data;
-            Node *next;
-        };
-
-        LinkedList():length(0),head(nullptr){};
-        virtual ~LinkedList();
-        //在末尾连接
-        virtual bool Append(const T &data);
-        //在第index个元素前插入
-        virtual bool Insert(int index, const T &data);
-        //删除节点
-        virtual bool Remove(int index);
-        //修改节点
-        bool Modify(int index, const T &data);
-        //查询节点
-        const T &operator[](int index)const;
-        //查询长度
-        inline int Length()const{
-            return length;
-        }
-        //遍历 根据每个数据执行func
-        void Ergodic(const ErgodicFunction<T> &func)const;
-    protected:
-        virtual Node *at(int index)const;
-        int length;
-        Node *head;
-    };
-
-    template<typename T>
-    LinkedList<T>::~LinkedList(){
-        Node *tar=head,*tmp;
-        for(int i=length;i;--i){
-            tmp=tar;
-            tar=tar->next;
-            delete tmp;
-        }
-    }
-
-    template<typename T>
-    bool LinkedList<T>::Append(const T &data){
-        Node *now=new Node{data, nullptr};
-        if(!length)
-            head=now;
-        else
-            this->at(-1)->next=now;
-        ++length;
-        return true;
-    }
-
-    template<typename T>
-    bool LinkedList<T>::Insert(const int index, const T &data){
-        if(index==0||index==-length)
-            head=new Node{data, nullptr};
-        else{
-            Node *tar;
-            if(!(tar=this->at(index-1)))
-                return false;
-            tar->next=new Node{data,tar->next};
-        }
-        ++length;
-        return true;
-    }
-
-    template<typename T>
-    bool LinkedList<T>::Remove(const int index){
-        Node *tar;
-        if(!(tar=this->at(index)))
-            return false;
-        if(tar==head)
-            head=head->next;
-        else
-            this->at(index-1)->next=tar->next;
-        delete tar;
-        --length;
-        return true;
-    }
-
-    template<typename T>
-    bool LinkedList<T>::Modify(const int index, const T &data){
-        Node *tar;
-        if(!(tar=this->at(index)))
-            return false;
-        tar->data=data;
-        return true;
-    }
-
-    template<typename T>
-    typename LinkedList<T>::Node *LinkedList<T>::at(const int index) const{
-        if(index>=length||index<-length)
-            return nullptr;
-        if(index>=0){
-            Node *now=head;
-            for(int i=0;i<index;++i)
-                now=now->next;
-            return now;
-        }else
-            return this->at(length+index);
-    }
-
-    template<typename T>
-    const T &LinkedList<T>::operator[](const int index) const{
-        Node *tar;
-        if(!(tar = this->at(index))){ throw std::out_of_range("Illegal Position."); }
-        return tar->data;
-    }
-
-    template<typename T>
-    void LinkedList<T>::Ergodic(const ErgodicFunction<T> &func) const {
-        Node *tar=head;
-        for(int i=length;i;--i){
-            func(tar->data);
-            tar=tar->next;
-        }
-    }
-
-    template<typename T>
-    using LList=LinkedList<T>;
 }
-
-#include <iostream>
+/*主程序实现*/
 using namespace std;
 using Info=Sky::StudentInfo;
-using InfoList=Sky::LList<Info>;
-using EFunc=Sky::ErgodicFunction<Info>;
+using InfoList=Sky::Container::LList<Info>;
+using EFunc=Sky::Container::ErgodicFunction<Info>;
 void Prompt(){
     cout<<"\
 **********************************\n\

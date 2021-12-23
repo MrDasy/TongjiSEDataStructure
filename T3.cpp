@@ -1,99 +1,14 @@
 ﻿// 2052313 周长赫
 // T3
 
+#include "Containers.hpp"
 #include <cstdlib>
-#include <functional>
 #include <iostream>
-#include <stdexcept>
 namespace Sky{
-    template<typename T>
-    struct Vector2{
-        T x,y;
-        inline Vector2 operator+(const Vector2 &tar)const{
-            return Vector2<T>{x+tar.x,y+tar.y};
-        }
-        inline bool operator==(const Vector2 &tar)const{
-            return x==tar.x&&y==tar.y;
-        }
-    };//二维向量
-
-    template<typename T>
-    std::ostream &operator<<(std::ostream &out,const Vector2<T> &data){
-        out<<'('<<data.x<<','<<data.y<<')';
-        return out;
-    }//重载输出
-
-    //队列
-    template<typename T>
-    class Queue{
-    public:
-        struct Node{
-            T data;
-            Node *prev,*next;
-        };
-
-        Queue():length(0),front(nullptr),tail(nullptr){}
-        ~Queue();
-        //获取队尾元素
-        T Top()const;
-        //元素出队
-        T Pop();
-        //元素入队
-        void Push(const T &data);
-        //判断是否为空
-        inline bool IsEmpty()const{return length==0;}
-    private:
-        Node *front,*tail;
-        int length;
-    };
-
-    template<typename T>
-    T Queue<T>::Top() const{
-        return tail->data;
-    }
-
-    template<typename T>
-    T Queue<T>::Pop(){
-        if(length==0)
-            throw std::out_of_range("No element remain!");
-        T res=tail->data;
-        if(length==1){
-            delete tail;
-            front=tail=nullptr;
-        }else{
-            tail=tail->prev;
-            delete tail->next;
-            tail->next=nullptr;
-        }
-        --length;
-        return res;
-    }
-
-    template<typename T>
-    void Queue<T>::Push(const T &data){
-        if(length==0){
-            front=tail=new Node{data,nullptr,nullptr};
-        }else{
-            front->prev=new Node{data,nullptr,front};
-            front=front->prev;
-        }
-        ++length;
-    }
-
-    template<typename T>
-    Queue<T>::~Queue(){
-        Node *now=front,*tmp;
-        for(int i=0;i<length;++i){
-            tmp=now;
-            now=now->next;
-            delete tmp;
-        }
-    }
-
     //地图类
     class RoadMap{
     public:
-        using Position=Vector2<int>;//位置向量
+        using Position=Container::Vector2<int>;//位置向量
         static constexpr Position EmptyPosition{-1,-1};
 
         explicit RoadMap(int size=10);//构造函数 默认大小10
@@ -134,7 +49,7 @@ namespace Sky{
 using namespace std;
 using RMap=Sky::RoadMap;
 using Pos=RMap::Position;
-using Queue=Sky::Queue<Pos>;
+using Queue=Sky::Container::Queue<Pos>;
 void Prompt(){
     cout<<"\
 **********************************\n\
@@ -190,6 +105,10 @@ Pos **FindRoad(RMap *const rmap){
         }
     }
     return nullptr;
+}
+std::ostream &operator<<(std::ostream &out,const Pos &data){
+    out<<'('<<data.x<<','<<data.y<<')';
+    return out;
 }
 void PrintRoute(const Pos now,RMap *const rmap,Pos **visited){
     if(now.x||now.y){
