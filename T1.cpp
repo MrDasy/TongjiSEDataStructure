@@ -1,7 +1,7 @@
 ﻿// 2052313 周长赫
 // T1
 
-#include "Containers.hpp"
+#include "DataStructures.hpp"
 #include <iostream>
 namespace Sky{
     struct StudentInfo{
@@ -36,8 +36,8 @@ namespace Sky{
 /*主程序实现*/
 using namespace std;
 using Info=Sky::StudentInfo;
-using InfoList=Sky::Container::LList<Info>;
-using EFunc=Sky::Container::ErgodicFunction<Info>;
+using InfoList=Sky::DataStructure::LList<Info>;
+using EFunc=Sky::DataStructure::ErgodicFunction<Info>;
 void Prompt(){
     cout<<"\
 **********************************\n\

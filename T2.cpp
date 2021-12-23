@@ -1,7 +1,7 @@
 ﻿// 2052313 周长赫
 // T2
 
-#include "Containers.hpp"
+#include "DataStructures.hpp"
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -13,8 +13,8 @@ namespace Sky{
         int finalNum; //最终剩余人数
     };
 }
-using EFunc=Sky::Container::ErgodicFunction<int>;
-using YFList=Sky::Container::SCLList<int>;
+using EFunc=Sky::DataStructure::ErgodicFunction<int>;
+using YFList=Sky::DataStructure::SCLList<int>;
 using Data=Sky::YFData;
 
 void Prompt(){

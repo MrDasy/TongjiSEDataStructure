@@ -3,4 +3,4 @@ project(SSEDataStructure)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(SSEDataStructure Containers.hpp T8.cpp)
+add_executable(SSEDataStructure DataStructures.hpp T8.cpp Algorithms.hpp)

@@ -2,15 +2,15 @@
 // Created by MrDas on 2021/12/23.
 //
 
-#ifndef SSEDATASTRUCTURE_CONTAINERS_HPP
-#define SSEDATASTRUCTURE_CONTAINERS_HPP
+#ifndef SSEDATASTRUCTURE_DATASTRUCTURES_HPP
+#define SSEDATASTRUCTURE_DATASTRUCTURES_HPP
 
 #include <functional>
 #include <utility>
 #include <stdexcept>
 #include <algorithm>
 namespace Sky{
-    namespace Container{
+    namespace DataStructure{
         //遍历函数 类型
         template<typename T>
         using ErgodicFunction=std::function<void(const T &data)>;
@@ -165,6 +165,40 @@ namespace Sky{
             DynamicArray<Edge> edgeSet;
             DynamicArray<int> headSet,nextSet;
         };
+        //树
+        class Tree: public Graph{
+        public:
+            explicit Tree(int nodeSize,int root=1):Graph(nodeSize),root(root){}
+        protected:
+            int root;
+        };
+        //并查集
+        class DisjointSet{
+        public:
+            explicit DisjointSet(int size);
+            void Merge(int tarA,int tarB);
+            bool Check(int tarA,int tarB);
+        private:
+            int find(int tar);
+            DynamicArray<int> checkSet;
+        };
+
+        DisjointSet::DisjointSet(const int size){
+            for(int i=size;i;--i)
+                checkSet[i]=i;
+        }
+
+        void DisjointSet::Merge(int tarA,int tarB){
+            checkSet[find(tarA)]=checkSet[find(tarB)];
+        }
+
+        int DisjointSet::find(int tar){
+            return tar==checkSet[tar]?tar:(checkSet[tar]=find(checkSet[tar]));
+        }
+
+        bool DisjointSet::Check(int tarA,int tarB){
+            return find(tarA)==find(tarB);
+        }
 
         Graph::Iterator &Graph::Iterator::operator++(){
             nowOrd=nextSet[nowOrd];
@@ -455,4 +489,4 @@ namespace Sky{
     }
 }
 
-#endif //SSEDATASTRUCTURE_CONTAINERS_HPP
+#endif //SSEDATASTRUCTURE_DATASTRUCTURES_HPP

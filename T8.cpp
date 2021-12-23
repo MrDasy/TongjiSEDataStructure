@@ -1,10 +1,11 @@
 ﻿// 2052313 周长赫
 // T4
 
-#include "Containers.hpp"
+#include "DataStructures.hpp"
 #include <iostream>
 using namespace std;
-using Sky::Container::Graph;
+using Sky::DataStructure::Tree;
+using DSet=Sky::DataStructure::DisjointSet;
 void Prompt(){
     cout<<"\
 **********************************\n\
@@ -18,9 +19,18 @@ void Hang(){
     cout<<endl<<"按任意键继续..."<<endl;
     cin.get();
 }
+void Operate(){
+    int nodeNum;
+    cout<<"[读入数据]"<<endl;
+    cout<<"请输入节点个数：";
+    cin>>nodeNum;
+    Tree tree(nodeNum,1);
+    DSet dset(nodeNum);
+
+}
 int main(){
     Prompt();
-
+    Operate();
     Hang();
     return 0;
 }

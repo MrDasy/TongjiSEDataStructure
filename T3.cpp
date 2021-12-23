@@ -1,14 +1,14 @@
 ﻿// 2052313 周长赫
 // T3
 
-#include "Containers.hpp"
+#include "DataStructures.hpp"
 #include <cstdlib>
 #include <iostream>
 namespace Sky{
     //地图类
     class RoadMap{
     public:
-        using Position=Container::Vector2<int>;//位置向量
+        using Position=DataStructure::Vector2<int>;//位置向量
         static constexpr Position EmptyPosition{-1,-1};
 
         explicit RoadMap(int size=10);//构造函数 默认大小10
@@ -49,7 +49,7 @@ namespace Sky{
 using namespace std;
 using RMap=Sky::RoadMap;
 using Pos=RMap::Position;
-using Queue=Sky::Container::Queue<Pos>;
+using Queue=Sky::DataStructure::Queue<Pos>;
 void Prompt(){
     cout<<"\
 **********************************\n\
