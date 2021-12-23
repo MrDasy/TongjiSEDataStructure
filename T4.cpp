@@ -26,7 +26,7 @@ void DataInit(){
     printf("[规则介绍]\n\
 现有NxN的棋盘，放入N个皇后，要求所有皇后不在同一行同一列同一斜线上。\n\
 请输入皇后的数量：");
-    scanf("%d",&queenNum);
+    scanf_s("%d",&queenNum);
     columnCheck=new bool[queenNum]{};
     leftAxisCheck=new bool[queenNum<<1]{};
     rightAxisCheck=new bool[queenNum<<1]{};
@@ -34,12 +34,20 @@ void DataInit(){
     selected=new int[queenNum]{};
 }
 void PrintSolution(){
-
+    for(int i=0;i<queenNum;++i){
+        for(int j=0;j<selected[i];++j)
+            printf("_ ");
+        printf("* ");
+        for(int j=selected[i]+1;j<queenNum;++j)
+            printf("_ ");
+        putchar('\n');
+    }
 }
 void Solve(int row){
     if(row==queenNum){
         ++solutionCnt;
         PrintSolution();
+        putchar('\n');
         return;
     }
     for(int column=0;column<queenNum;++column){
@@ -57,6 +65,7 @@ void Solve(int row){
 int main(){
     Prompt();
     DataInit();
+    printf("解法（_代表空格 *代表皇后）：\n");
     Solve(0);
     printf("解法数量：%d\n",solutionCnt);
     Hang();
