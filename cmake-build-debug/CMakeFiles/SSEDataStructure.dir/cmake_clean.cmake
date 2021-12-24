@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SSEDataStructure.dir/T8.cpp.obj"
-  "SSEDataStructure.exe"
-  "SSEDataStructure.exe.manifest"
-  "SSEDataStructure.lib"
+  "CMakeFiles/SSEDataStructure.dir/T8.cpp.o"
+  "SSEDataStructure"
   "SSEDataStructure.pdb"
 )
 

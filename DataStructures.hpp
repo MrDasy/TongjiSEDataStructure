@@ -117,6 +117,9 @@ namespace Sky{
 
             T &explore(int index);
         public:
+            inline T *begin()const {return data;}
+            inline T *end()const {return data+currentSize;}
+
             const static int LIMIT=1<<20;
             explicit DynamicArray(int initialSize=8);
             ~DynamicArray();
@@ -135,6 +138,7 @@ namespace Sky{
                 int from,to,length;
                 //取反边
                 Edge operator~()const;
+                bool operator>(const Edge &tar)const;
             };
             //迭代器类 用于访问某个点的所有边
             class Iterator{
@@ -159,7 +163,10 @@ namespace Sky{
             };
             inline explicit Graph(int initialSize=10):nodeCnt(initialSize){edgeSet.Append(Edge{0,0,0});}
             void AddEdge(int from,int to,int length=0);
+            void AddEdge(const Edge &edge);
             NodeAgency operator[](int nodeIndex)const;
+            inline int CountNode()const {return nodeCnt;}
+            inline int CountEdge()const {return edgeSet.Length();}
         protected:
             int nodeCnt;
             DynamicArray<Edge> edgeSet;
@@ -169,6 +176,7 @@ namespace Sky{
         class Tree: public Graph{
         public:
             explicit Tree(int nodeSize,int root=1):Graph(nodeSize),root(root){}
+            inline int GetRoot()const{return root;}
         protected:
             int root;
         };
@@ -226,11 +234,19 @@ namespace Sky{
             return NodeAgency{headSet,nextSet,edgeSet,nodeIndex};
         }
 
-        Graph::Edge Graph::Edge::operator~() const{
+    void Graph::AddEdge(const Graph::Edge &edge){
+        this->AddEdge(edge.from,edge.to,edge.length);
+    }
+
+    Graph::Edge Graph::Edge::operator~() const{
             return Edge{to,from,length};
         }
 
-        template<typename T>
+    bool Graph::Edge::operator>(const Graph::Edge &tar) const{
+        return this->length>tar.length;
+    }
+
+    template<typename T>
         Vector2<T> Vector2<T>::operator+(const Vector2 &tar) const{
             return Vector2<T>{x+tar.x,y+tar.y};
         }

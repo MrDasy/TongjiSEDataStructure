@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/boton/CLionProjects/SSEDataStructure/T8.cpp" "C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/SSEDataStructure.dir/T8.cpp.obj"
+  "/Users/skyzhou/Documents/Workspace/SSEDataStructure/T8.cpp" "/Users/skyzhou/Documents/Workspace/SSEDataStructure/cmake-build-debug/CMakeFiles/SSEDataStructure.dir/T8.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "MSVC")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
