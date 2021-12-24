@@ -139,6 +139,7 @@ namespace Sky{
                 //取反边
                 Edge operator~()const;
                 bool operator>(const Edge &tar)const;
+                bool operator<(const Edge &tar)const;
             };
             //迭代器类 用于访问某个点的所有边
             class Iterator{
@@ -246,7 +247,11 @@ namespace Sky{
         return this->length>tar.length;
     }
 
-    template<typename T>
+        bool Graph::Edge::operator<(const Graph::Edge &tar) const{
+            return this->length<tar.length;
+        }
+
+        template<typename T>
         Vector2<T> Vector2<T>::operator+(const Vector2 &tar) const{
             return Vector2<T>{x+tar.x,y+tar.y};
         }

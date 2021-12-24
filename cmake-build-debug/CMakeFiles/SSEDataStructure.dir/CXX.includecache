@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/skyzhou/Documents/Workspace/SSEDataStructure/Algorithms.hpp
+C:/Users/boton/CLionProjects/SSEDataStructure/Algorithms.hpp
 DataStructures.hpp
-/Users/skyzhou/Documents/Workspace/SSEDataStructure/DataStructures.hpp
+C:/Users/boton/CLionProjects/SSEDataStructure/DataStructures.hpp
 
-/Users/skyzhou/Documents/Workspace/SSEDataStructure/DataStructures.hpp
+C:/Users/boton/CLionProjects/SSEDataStructure/DataStructures.hpp
 functional
 -
 utility
@@ -20,11 +20,11 @@ stdexcept
 algorithm
 -
 
-/Users/skyzhou/Documents/Workspace/SSEDataStructure/T8.cpp
+C:/Users/boton/CLionProjects/SSEDataStructure/T8.cpp
 DataStructures.hpp
-/Users/skyzhou/Documents/Workspace/SSEDataStructure/DataStructures.hpp
+C:/Users/boton/CLionProjects/SSEDataStructure/DataStructures.hpp
 Algorithms.hpp
-/Users/skyzhou/Documents/Workspace/SSEDataStructure/Algorithms.hpp
+C:/Users/boton/CLionProjects/SSEDataStructure/Algorithms.hpp
 iostream
 -
 
