@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/skyzhou/Documents/Workspace/SSEDataStructure/Algorithms.hpp
+DataStructures.hpp
+/Users/skyzhou/Documents/Workspace/SSEDataStructure/DataStructures.hpp
+
+/Users/skyzhou/Documents/Workspace/SSEDataStructure/DataStructures.hpp
+functional
+-
+utility
+-
+stdexcept
+-
+algorithm
+-
+
+/Users/skyzhou/Documents/Workspace/SSEDataStructure/T8.cpp
+DataStructures.hpp
+/Users/skyzhou/Documents/Workspace/SSEDataStructure/DataStructures.hpp
+Algorithms.hpp
+/Users/skyzhou/Documents/Workspace/SSEDataStructure/Algorithms.hpp
+iostream
+-
+

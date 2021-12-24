@@ -49,8 +49,11 @@ void PrintTree(const Tree &tree){
     int nowNode;
     do{
         nowNode=q.Pop().to;
+        visited[nowNode]= true;
         for(const Edge &edge : tree[nowNode]){
-            printf("(%d=[%d]=>%d ",edge.from,edge.length,edge.to);
+            if(visited[edge.to])
+                continue;
+            printf("(%d=[%d]=>%d) ",edge.from,edge.length,edge.to);
             q.Push(edge);
         }
     }while(!q.IsEmpty());
@@ -62,8 +65,9 @@ bool Kruskal(const EdgeArray &edgeArray){
         if(!dset.Check(edge.from,edge.to)){
             dset.Merge(edge.from,edge.to);
             tree.AddEdge(edge);
+            tree.AddEdge(~edge);
         }
-    if(tree.CountEdge()==nodeNum-1){
+    if(tree.CountEdge()/2==nodeNum-1){
         PrintTree(tree);
         return true;
     }
@@ -73,6 +77,7 @@ int main(){
     Prompt();
     EdgeArray edgeArray;
     GetData(edgeArray);
+    Kruskal(edgeArray);
     Hang();
     return 0;
 }

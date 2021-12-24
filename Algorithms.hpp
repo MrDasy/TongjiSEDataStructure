@@ -11,19 +11,19 @@ namespace Sky{
     //比较器
     template<typename T>
     struct Comparator{
-        virtual bool operator()(const T &tarA,const T &tarB)=0;
+        virtual bool operator()(const T &tarA,const T &tarB)const=0;
     };
     //大于
     template<typename T>
     struct Greater:Comparator<T>{
-        inline bool operator()(const T &tarA,const T &tarB){
+        inline bool operator()(const T &tarA,const T &tarB)const{
             return tarA>tarB;
         }
     };
     //小于
     template<typename T>
     struct Less:Comparator<T>{
-        inline bool operator()(const T &tarA,const T &tarB){
+        inline bool operator()(const T &tarA,const T &tarB)const{
             return tarA<tarB;
         }
     };
