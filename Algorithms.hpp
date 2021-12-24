@@ -1,4 +1,4 @@
-//
+﻿//
 // Created by MrDas on 2021/12/24.
 //
 
@@ -13,18 +13,18 @@ namespace Sky{
     struct Comparator{
         virtual bool operator()(const T &tarA,const T &tarB)const=0;
     };
-    //大于
+    //从小到大
     template<typename T>
     struct Greater:Comparator<T>{
         inline bool operator()(const T &tarA,const T &tarB)const{
-            return tarA>tarB;
+            return tarA<tarB;
         }
     };
-    //小于
+    //从大到小
     template<typename T>
     struct Less:Comparator<T>{
         inline bool operator()(const T &tarA,const T &tarB)const{
-            return tarA<tarB;
+            return tarA>tarB;
         }
     };
     //快速排序
