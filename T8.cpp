@@ -1,15 +1,17 @@
 ﻿// 2052313 周长赫
-// T4
+// T8
 
 #include "DataStructures.hpp"
 #include "Algorithms.hpp"
 #include <iostream>
+
 using namespace std;
 using Sky::DataStructure::Tree;
 using DSet=Sky::DataStructure::DisjointSet;
 using Edge=Tree::Edge;
 using EdgeArray=Sky::DataStructure::DynamicArray<Edge>;
 using EdgeQueue=Sky::DataStructure::Queue<Edge>;
+
 void Prompt(){
     cout<<"\
 **********************************\n\
@@ -40,7 +42,7 @@ void GetData(EdgeArray &edgeArray){
         cin>>tmpEdge;
         edgeArray.Append(tmpEdge);
     }
-    Sky::Algorithm::Quicksort(edgeArray,0,edgeNum-1);
+    Sky::Algorithm::QuickSort(edgeArray);
 }
 void PrintTree(const Tree &tree){
     EdgeQueue q;
@@ -49,8 +51,8 @@ void PrintTree(const Tree &tree){
     int nowNode;
     do{
         nowNode=q.Pop().to;
-        visited[nowNode]= true;
-        for(const Edge &edge : tree[nowNode]){
+        visited[nowNode]=true;
+        for(const Edge &edge:tree[nowNode]){
             if(visited[edge.to])
                 continue;
             printf("(%d=[%d]=>%d) ",edge.from,edge.length,edge.to);
@@ -61,7 +63,7 @@ void PrintTree(const Tree &tree){
 bool Kruskal(const EdgeArray &edgeArray){
     DSet dset(nodeNum);
     Tree tree(nodeNum,1);
-    for(const Edge &edge : edgeArray)
+    for(const Edge &edge:edgeArray)
         if(!dset.Check(edge.from,edge.to)){
             dset.Merge(edge.from,edge.to);
             tree.AddEdge(edge);

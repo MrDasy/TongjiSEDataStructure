@@ -4,6 +4,7 @@
 #include "DataStructures.hpp"
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 namespace Sky{
     struct YFData{
@@ -32,9 +33,9 @@ void Hang(){
 }
 bool CheckData(const Data &data){
     return (data.totalNum|data.finalNum|data.deadOrd|data.startOrd)>0
-        && data.totalNum>data.finalNum
-        && data.totalNum>=data.startOrd
-        && data.startOrd>0;
+           &&data.totalNum>data.finalNum
+           &&data.totalNum>=data.startOrd
+           &&data.startOrd>0;
 }
 void GetData(Data &data){
     cout<<"[规则介绍]"<<endl;
@@ -78,7 +79,6 @@ void Compute(const Data &data){
     cout<<"最后剩下"<<setw(3)<<data.finalNum<<"人，分别为："<<endl;
     List.Ergodic(printFunc);
 }
-
 int main(){
     Prompt();
     Data data{};

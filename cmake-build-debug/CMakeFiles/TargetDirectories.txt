@@ -1,3 +1,8 @@
-C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/SSEDataStructure.dir
+C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/T1.dir
+C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/T10.dir
+C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/T2.dir
 C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/T3.dir
 C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/T4.dir
+C:/Users/boton/CLionProjects/SSEDataStructure/cmake-build-debug/CMakeFiles/T8.dir

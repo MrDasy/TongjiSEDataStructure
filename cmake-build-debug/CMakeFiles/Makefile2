@@ -52,7 +52,12 @@ CMAKE_BINARY_DIR = C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-deb
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles\SSEDataStructure.dir\all
+all: CMakeFiles\T1.dir\all
+all: CMakeFiles\T10.dir\all
+all: CMakeFiles\T2.dir\all
+all: CMakeFiles\T3.dir\all
+all: CMakeFiles\T4.dir\all
+all: CMakeFiles\T8.dir\all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -60,34 +65,169 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles\SSEDataStructure.dir\clean
+clean: CMakeFiles\T1.dir\clean
+clean: CMakeFiles\T10.dir\clean
+clean: CMakeFiles\T2.dir\clean
+clean: CMakeFiles\T3.dir\clean
+clean: CMakeFiles\T4.dir\clean
+clean: CMakeFiles\T8.dir\clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/SSEDataStructure.dir
+# Target rules for target CMakeFiles/T1.dir
 
 # All Build rule for target.
-CMakeFiles\SSEDataStructure.dir\all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SSEDataStructure.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SSEDataStructure.dir\depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SSEDataStructure.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SSEDataStructure.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target SSEDataStructure"
-.PHONY : CMakeFiles\SSEDataStructure.dir\all
+CMakeFiles\T1.dir\all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T1.dir\depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T1.dir\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target T1"
+.PHONY : CMakeFiles\T1.dir\all
 
 # Build rule for subdir invocation for target.
-CMakeFiles\SSEDataStructure.dir\rule: cmake_check_build_system
+CMakeFiles\T1.dir\rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\SSEDataStructure.dir\all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\T1.dir\all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles 0
-.PHONY : CMakeFiles\SSEDataStructure.dir\rule
+.PHONY : CMakeFiles\T1.dir\rule
 
 # Convenience name for target.
-SSEDataStructure: CMakeFiles\SSEDataStructure.dir\rule
-.PHONY : SSEDataStructure
+T1: CMakeFiles\T1.dir\rule
+.PHONY : T1
 
 # clean rule for target.
-CMakeFiles\SSEDataStructure.dir\clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SSEDataStructure.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SSEDataStructure.dir\clean
-.PHONY : CMakeFiles\SSEDataStructure.dir\clean
+CMakeFiles\T1.dir\clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T1.dir\clean
+.PHONY : CMakeFiles\T1.dir\clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/T10.dir
+
+# All Build rule for target.
+CMakeFiles\T10.dir\all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T10.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T10.dir\depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T10.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T10.dir\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles --progress-num=3,4 "Built target T10"
+.PHONY : CMakeFiles\T10.dir\all
+
+# Build rule for subdir invocation for target.
+CMakeFiles\T10.dir\rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\T10.dir\all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles\T10.dir\rule
+
+# Convenience name for target.
+T10: CMakeFiles\T10.dir\rule
+.PHONY : T10
+
+# clean rule for target.
+CMakeFiles\T10.dir\clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T10.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T10.dir\clean
+.PHONY : CMakeFiles\T10.dir\clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/T2.dir
+
+# All Build rule for target.
+CMakeFiles\T2.dir\all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T2.dir\depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T2.dir\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles --progress-num=5,6 "Built target T2"
+.PHONY : CMakeFiles\T2.dir\all
+
+# Build rule for subdir invocation for target.
+CMakeFiles\T2.dir\rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\T2.dir\all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles\T2.dir\rule
+
+# Convenience name for target.
+T2: CMakeFiles\T2.dir\rule
+.PHONY : T2
+
+# clean rule for target.
+CMakeFiles\T2.dir\clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T2.dir\clean
+.PHONY : CMakeFiles\T2.dir\clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/T3.dir
+
+# All Build rule for target.
+CMakeFiles\T3.dir\all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T3.dir\depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T3.dir\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles --progress-num=7,8 "Built target T3"
+.PHONY : CMakeFiles\T3.dir\all
+
+# Build rule for subdir invocation for target.
+CMakeFiles\T3.dir\rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\T3.dir\all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles\T3.dir\rule
+
+# Convenience name for target.
+T3: CMakeFiles\T3.dir\rule
+.PHONY : T3
+
+# clean rule for target.
+CMakeFiles\T3.dir\clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T3.dir\clean
+.PHONY : CMakeFiles\T3.dir\clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/T4.dir
+
+# All Build rule for target.
+CMakeFiles\T4.dir\all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T4.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T4.dir\depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T4.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T4.dir\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles --progress-num=9,10 "Built target T4"
+.PHONY : CMakeFiles\T4.dir\all
+
+# Build rule for subdir invocation for target.
+CMakeFiles\T4.dir\rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\T4.dir\all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles\T4.dir\rule
+
+# Convenience name for target.
+T4: CMakeFiles\T4.dir\rule
+.PHONY : T4
+
+# clean rule for target.
+CMakeFiles\T4.dir\clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T4.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T4.dir\clean
+.PHONY : CMakeFiles\T4.dir\clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/T8.dir
+
+# All Build rule for target.
+CMakeFiles\T8.dir\all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T8.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T8.dir\depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T8.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T8.dir\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles --progress-num=11,12 "Built target T8"
+.PHONY : CMakeFiles\T8.dir\all
+
+# Build rule for subdir invocation for target.
+CMakeFiles\T8.dir\rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\T8.dir\all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\boton\CLionProjects\SSEDataStructure\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles\T8.dir\rule
+
+# Convenience name for target.
+T8: CMakeFiles\T8.dir\rule
+.PHONY : T8
+
+# clean rule for target.
+CMakeFiles\T8.dir\clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\T8.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\T8.dir\clean
+.PHONY : CMakeFiles\T8.dir\clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

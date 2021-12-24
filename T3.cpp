@@ -4,31 +4,31 @@
 #include "DataStructures.hpp"
 #include <cstdlib>
 #include <iostream>
+
 namespace Sky{
     //地图类
     class RoadMap{
     public:
         using Position=DataStructure::Vector2<int>;//位置向量
         static constexpr Position EmptyPosition{-1,-1};
-
         explicit RoadMap(int size=10);//构造函数 默认大小10
         ~RoadMap();
-
         inline int &operator[](const Position &pos){
             return board[pos.x][pos.y];
         }
-        inline int GetSize()const{return size;}
+        inline int GetSize() const{ return size; }
         inline bool Check(const Position &pos){
             return pos.x>=0&&pos.y>=0&&pos.x<size&&pos.y<size
-                && board[pos.x][pos.y]==0;
+                   &&board[pos.x][pos.y]==0;
         }
+
     private:
         int **board;
         int size;
     };
 
     RoadMap::RoadMap(int size):size(size){
-        board=new int*[size]{};
+        board=new int *[size]{};
         for(int i=0;i<size;++i)
             board[i]=new int[size]{};
         for(int i=0;i<size;++i)
@@ -36,7 +36,6 @@ namespace Sky{
                 board[i][j]=rand()%4==0;
         board[0][0]=board[size-1][size-1]=0;
     }
-
     RoadMap::~RoadMap(){
         for(int i=0;i<size;++i)
             delete[] board[i];
@@ -46,10 +45,12 @@ namespace Sky{
 
 #include <ctime>
 #include <iomanip>
+
 using namespace std;
 using RMap=Sky::RoadMap;
 using Pos=RMap::Position;
 using Queue=Sky::DataStructure::Queue<Pos>;
+
 void Prompt(){
     cout<<"\
 **********************************\n\
@@ -85,7 +86,7 @@ Pos **FindRoad(RMap *const rmap){
     int size=rmap->GetSize();
     Pos dst{size-1,size-1};
     Pos empty{-1,-1};
-    Pos **visited=new Pos*[size];
+    Pos **visited=new Pos *[size];
     for(int i=0;i<size;++i)
         visited[i]=new Pos[size];
     for(int i=0;i<size;++i)
@@ -97,7 +98,7 @@ Pos **FindRoad(RMap *const rmap){
         Pos now=q.Pop();
         if(now==dst)
             return visited;
-        for (const Pos &mv : movVecs){
+        for(const Pos &mv:movVecs){
             Pos &&tar=now+mv;
             if(rmap->Check(tar)&&visited[tar.x][tar.y]==empty)
                 q.Push(tar),

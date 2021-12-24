@@ -2,6 +2,7 @@
 // T4
 
 #include <cstdio>
+
 void Prompt(){
     printf("\
 **********************************\n\
@@ -9,6 +10,7 @@ void Prompt(){
 **********************************\n\
 \n");
 }
+
 void Hang(){
     printf("按任意键继续...\n");
     getchar();
@@ -18,10 +20,11 @@ void Hang(){
 int queenNum{};//皇后总数
 int *selected;
 bool *columnCheck{nullptr},//列试错
-    *leftAxisCheck{nullptr},//正对角线试错
-    *rightAxisCheck{nullptr};//反对角线试错
+*leftAxisCheck{nullptr},//正对角线试错
+*rightAxisCheck{nullptr};//反对角线试错
 bool **check{nullptr};//试错简化数组
 int solutionCnt{};
+
 void DataInit(){
     printf("[规则介绍]\n\
 现有NxN的棋盘，放入N个皇后，要求所有皇后不在同一行同一列同一斜线上。\n\
@@ -30,9 +33,10 @@ void DataInit(){
     columnCheck=new bool[queenNum]{};
     leftAxisCheck=new bool[queenNum<<1]{};
     rightAxisCheck=new bool[queenNum<<1]{};
-    check=new bool*[]{columnCheck,leftAxisCheck,rightAxisCheck};
+    check=new bool *[]{columnCheck,leftAxisCheck,rightAxisCheck};
     selected=new int[queenNum]{};
 }
+
 void PrintSolution(){
     for(int i=0;i<queenNum;++i){
         for(int j=0;j<selected[i];++j)
@@ -43,6 +47,7 @@ void PrintSolution(){
         putchar('\n');
     }
 }
+
 void Solve(int row){
     if(row==queenNum){
         ++solutionCnt;
@@ -62,6 +67,7 @@ void Solve(int row){
         }
     }
 }
+
 int main(){
     Prompt();
     DataInit();
